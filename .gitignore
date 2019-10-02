@@ -1,6 +1,9 @@
 dependencies/linux/astra_sdk/*
 !dependencies/linux/astra_sdk/lib
 !dependencies/linux/astra_sdk/include
+!dependencies/linux/astra_sdk/LICENSE.txt
+!dependencies/linux/astra_sdk/README.txt
+godot_demo/godot_astra_plugin/gdnative/x11/libgodot_astra_plugin.so
 
 dependencies/windows/astra_sdk/*
 !dependencies/windows/astra_sdk/lib

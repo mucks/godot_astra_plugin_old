@@ -1,0 +1,4 @@
+dependencies/linux/astra_sdk/lib/ filter=lfs diff=lfs merge=lfs -text
+dependencies/windows/astra_sdk/lib/ filter=lfs diff=lfs merge=lfs -text
+godot_demo/addons/godot_astra_plugin/gdnative/x11 filter=lfs diff=lfs merge=lfs -text
+godot_demo/addons/godot_astra_plugin/gdnative/win64 filter=lfs diff=lfs merge=lfs -text

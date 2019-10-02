@@ -1,0 +1,8 @@
+2019-10-02 20:05:10,357 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/7": Failed to send a USB control request!
+
+2019-10-02 20:07:39,601 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/10": Failed to send a USB control request!
+
+2019-10-02 20:08:00,061 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/10": Failed to send a USB control request!
+
+2019-10-02 20:08:57,729 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/10": Failed to send a USB control request!
+

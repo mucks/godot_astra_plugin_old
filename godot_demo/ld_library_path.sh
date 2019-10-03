@@ -1,0 +1,1 @@
+export LD_LIBRARY_PATH=./addons/godot_astra_plugin/gdnative/x11

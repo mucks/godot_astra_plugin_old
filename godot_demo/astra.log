@@ -6,3 +6,23 @@
 
 2019-10-02 20:08:57,729 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/10": Failed to send a USB control request!
 
+2019-10-03 04:06:12,062 ERROR [astra] Body Tracking Error: 0x500005c1 Please contact Orbbec support.
+2019-10-03 04:06:12,062 ERROR [astra] Body Tracking Error: 0x500005c9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 04:06:53,819 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/10": Failed to send a USB control request!
+
+2019-10-03 04:07:30,844 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/10": Failed to send a USB control request!
+
+2019-10-03 04:07:46,885 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/13": Failed to send a USB control request!
+
+2019-10-03 04:07:49,817 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/13": Failed to send a USB control request!
+
+2019-10-03 04:08:20,187 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/13": Failed to receive a USB control request!
+
+2019-10-03 04:08:36,087 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/13": Failed to receive a USB control request!
+
+2019-10-03 04:08:51,873 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/16": Failed to send a USB control request!
+
+2019-10-03 04:09:35,289 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/16": Failed to send a USB control request!
+
+2019-10-03 04:44:43,110 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/16": Failed to send a USB control request!
+

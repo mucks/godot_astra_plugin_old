@@ -26,3 +26,85 @@
 
 2019-10-03 04:44:43,110 ERROR [orbbec.ni.device_streamset] failed to open device: 	Could not open "2bc5/0403@3/16": Failed to send a USB control request!
 
+2019-10-03 13:45:05,767 ERROR [astra] Body Tracking Error: 0x50000c81 Please contact Orbbec support.
+2019-10-03 13:45:05,767 ERROR [astra] Body Tracking Error: 0x50000c89 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:46:00,110 ERROR [astra] Body Tracking Error: 0x50000cc1 Please contact Orbbec support.
+2019-10-03 13:46:00,110 ERROR [astra] Body Tracking Error: 0x50000cc9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:46:30,859 ERROR [astra] Body Tracking Error: 0x50000ba1 Please contact Orbbec support.
+2019-10-03 13:46:30,859 ERROR [astra] Body Tracking Error: 0x50000ba9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:47:45,465 ERROR [astra] Body Tracking Error: 0x50000b41 Please contact Orbbec support.
+2019-10-03 13:47:45,465 ERROR [astra] Body Tracking Error: 0x50000b49 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:48:22,706 ERROR [astra] Body Tracking Error: 0x50000ad1 Please contact Orbbec support.
+2019-10-03 13:48:22,706 ERROR [astra] Body Tracking Error: 0x50000ad9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:51:22,147 ERROR [astra] Body Tracking Error: 0x50000cb1 Please contact Orbbec support.
+2019-10-03 13:51:22,147 ERROR [astra] Body Tracking Error: 0x50000cc9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:57:49,568 ERROR [astra] Body Tracking Error: 0x50000b71 Please contact Orbbec support.
+2019-10-03 13:57:49,568 ERROR [astra] Body Tracking Error: 0x50000b79 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 13:58:30,539 ERROR [astra] Body Tracking Error: 0x50000d31 Please contact Orbbec support.
+2019-10-03 13:58:30,539 ERROR [astra] Body Tracking Error: 0x50000d49 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:01:40,320 ERROR [astra] Body Tracking Error: 0x50000be1 Please contact Orbbec support.
+2019-10-03 14:01:40,320 ERROR [astra] Body Tracking Error: 0x50000be9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:02:18,890 ERROR [astra] Body Tracking Error: 0x50000af1 Please contact Orbbec support.
+2019-10-03 14:02:18,890 ERROR [astra] Body Tracking Error: 0x50000b09 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:03:24,463 ERROR [astra] Body Tracking Error: 0x50000b31 Please contact Orbbec support.
+2019-10-03 14:03:24,463 ERROR [astra] Body Tracking Error: 0x50000b39 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:03:55,607 ERROR [astra] Body Tracking Error: 0x50000b41 Please contact Orbbec support.
+2019-10-03 14:03:55,608 ERROR [astra] Body Tracking Error: 0x50000b49 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:04:15,633 ERROR [astra] Body Tracking Error: 0x50000ae1 Please contact Orbbec support.
+2019-10-03 14:04:15,633 ERROR [astra] Body Tracking Error: 0x50000ae9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:06:26,707 ERROR [astra] Body Tracking Error: 0x50000b41 Please contact Orbbec support.
+2019-10-03 14:06:26,707 ERROR [astra] Body Tracking Error: 0x50000b49 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:06:57,782 ERROR [astra] Body Tracking Error: 0x50000b21 Please contact Orbbec support.
+2019-10-03 14:06:57,782 ERROR [astra] Body Tracking Error: 0x50000b29 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:07:22,283 ERROR [astra] Body Tracking Error: 0x50000b71 Please contact Orbbec support.
+2019-10-03 14:07:22,283 ERROR [astra] Body Tracking Error: 0x50000b79 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:08:19,081 ERROR [astra] Body Tracking Error: 0x50000b31 Please contact Orbbec support.
+2019-10-03 14:08:19,081 ERROR [astra] Body Tracking Error: 0x50000b39 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:08:38,688 ERROR [astra] Body Tracking Error: 0x50000bb1 Please contact Orbbec support.
+2019-10-03 14:08:38,688 ERROR [astra] Body Tracking Error: 0x50000bb9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:09:17,393 ERROR [astra] Body Tracking Error: 0x50000b41 Please contact Orbbec support.
+2019-10-03 14:09:17,393 ERROR [astra] Body Tracking Error: 0x50000b49 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:09:48,741 ERROR [astra] Body Tracking Error: 0x50000b21 Please contact Orbbec support.
+2019-10-03 14:09:48,741 ERROR [astra] Body Tracking Error: 0x50000b29 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:10:15,133 ERROR [astra] Body Tracking Error: 0x50000b01 Please contact Orbbec support.
+2019-10-03 14:10:15,133 ERROR [astra] Body Tracking Error: 0x50000b19 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:10:48,201 ERROR [astra] Body Tracking Error: 0x50000b81 Please contact Orbbec support.
+2019-10-03 14:10:48,201 ERROR [astra] Body Tracking Error: 0x50000b89 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:12:13,071 ERROR [astra] Body Tracking Error: 0x50000b11 Please contact Orbbec support.
+2019-10-03 14:12:13,071 ERROR [astra] Body Tracking Error: 0x50000b19 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:12:34,347 ERROR [astra] Body Tracking Error: 0x50000b71 Please contact Orbbec support.
+2019-10-03 14:12:34,347 ERROR [astra] Body Tracking Error: 0x50000b79 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:16:29,752 ERROR [astra] Body Tracking Error: 0x50000b11 Please contact Orbbec support.
+2019-10-03 14:16:29,752 ERROR [astra] Body Tracking Error: 0x50000b19 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:16:44,961 ERROR [astra] Body Tracking Error: 0x50000b11 Please contact Orbbec support.
+2019-10-03 14:16:44,961 ERROR [astra] Body Tracking Error: 0x50000b19 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:17:45,998 ERROR [astra] Body Tracking Error: 0x50000ac1 Please contact Orbbec support.
+2019-10-03 14:17:45,998 ERROR [astra] Body Tracking Error: 0x50000ac9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:18:14,256 ERROR [astra] Body Tracking Error: 0x50000b31 Please contact Orbbec support.
+2019-10-03 14:18:14,256 ERROR [astra] Body Tracking Error: 0x50000b39 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:19:02,492 ERROR [astra] Body Tracking Error: 0x50000b21 Please contact Orbbec support.
+2019-10-03 14:19:02,492 ERROR [astra] Body Tracking Error: 0x50000b39 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:19:51,565 ERROR [astra] Body Tracking Error: 0x50000b11 Please contact Orbbec support.
+2019-10-03 14:19:51,565 ERROR [astra] Body Tracking Error: 0x50000b19 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:22:18,961 ERROR [astra] Body Tracking Error: 0x50000af1 Please contact Orbbec support.
+2019-10-03 14:22:18,962 ERROR [astra] Body Tracking Error: 0x50000af9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:24:28,214 ERROR [astra] Body Tracking Error: 0x50000b51 Please contact Orbbec support.
+2019-10-03 14:24:28,214 ERROR [astra] Body Tracking Error: 0x50000b59 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:24:43,885 ERROR [astra] Body Tracking Error: 0x50000af1 Please contact Orbbec support.
+2019-10-03 14:24:43,885 ERROR [astra] Body Tracking Error: 0x50000af9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:25:05,855 ERROR [astra] Body Tracking Error: 0x50000bb1 Please contact Orbbec support.
+2019-10-03 14:25:05,855 ERROR [astra] Body Tracking Error: 0x50000bb9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:25:24,676 ERROR [astra] Body Tracking Error: 0x50000af1 Please contact Orbbec support.
+2019-10-03 14:25:24,676 ERROR [astra] Body Tracking Error: 0x50000af9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:25:39,551 ERROR [astra] Body Tracking Error: 0x50000ae1 Please contact Orbbec support.
+2019-10-03 14:25:39,551 ERROR [astra] Body Tracking Error: 0x50000ae9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:25:51,453 ERROR [astra] Body Tracking Error: 0x50000b21 Please contact Orbbec support.
+2019-10-03 14:25:51,453 ERROR [astra] Body Tracking Error: 0x50000b29 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:26:04,990 ERROR [astra] Body Tracking Error: 0x50000b01 Please contact Orbbec support.
+2019-10-03 14:26:04,990 ERROR [astra] Body Tracking Error: 0x50000b19 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:26:24,904 ERROR [astra] Body Tracking Error: 0x50000b71 Please contact Orbbec support.
+2019-10-03 14:26:24,904 ERROR [astra] Body Tracking Error: 0x50000b89 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:26:41,043 ERROR [astra] Body Tracking Error: 0x50000af1 Please contact Orbbec support.
+2019-10-03 14:26:41,043 ERROR [astra] Body Tracking Error: 0x50000af9 Invalid Orbbec Body Tracking license. Please contact Orbbec support.
+2019-10-03 14:27:37,524 ERROR [astra] Body Tracking Error: 0x50000b21 Please contact Orbbec support.
+2019-10-03 14:27:37,525 ERROR [astra] Body Tracking Error: 0x50000b29 Invalid Orbbec Body Tracking license. Please contact Orbbec support.

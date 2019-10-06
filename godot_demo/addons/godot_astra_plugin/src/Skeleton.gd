@@ -10,7 +10,6 @@ enum JointType { HEAD, SHOULDER_SPINE, LEFT_SHOULDER, LEFT_ELBOW, LEFT_HAND, \
     LEFT_KNEE, LEFT_FOOT, RIGHT_HIP, RIGHT_KNEE, RIGHT_FOOT, LEFT_WRIST, \
     RIGHT_WRIST, NECK, UNKNOWN = 255, PARSE_ERROR = -1}
 
-
 func is_leg(joint_type):
     match joint_type:
         JointType.RIGHT_FOOT, JointType.RIGHT_KNEE, JointType.RIGHT_HIP, \

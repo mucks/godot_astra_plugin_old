@@ -21,4 +21,4 @@ godot_demo_export/*
 *.log
 AstraAndroidModule/__pycache__
 *.dblite
-godot_demo/godot_astra_plugin/gdnative/x11
+godot_demo/addons/godot_astra_plugin/gdnative/x11

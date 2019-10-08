@@ -14,6 +14,11 @@ dependencies/windows/astra_sdk/*
 
 *astra.log
 *.o
+*.os
 godot_demo_export/*
 !godot_demo_export/Launcher.sh
 !godot_demo_export/Plugins
+*.log
+AstraAndroidModule/__pycache__
+*.dblite
+godot_demo/godot_astra_plugin/gdnative/x11

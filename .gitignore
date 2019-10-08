@@ -1,15 +1,6 @@
-dependencies/linux/astra_sdk/*
-!dependencies/linux/astra_sdk/lib
-!dependencies/linux/astra_sdk/include
-!dependencies/linux/astra_sdk/LICENSE.txt
-!dependencies/linux/astra_sdk/README.txt
+dependencies/linux/astra_sdk
 
-dependencies/windows/astra_sdk/*
-!dependencies/windows/astra_sdk/lib
-!dependencies/windows/astra_sdk/include
-!dependencies/windows/astra_sdk/LICENSE.txt
-!dependencies/windows/astra_sdk/README.txt
-
+dependencies/windows/astra_sdk
 
 *astra.log
 *.o

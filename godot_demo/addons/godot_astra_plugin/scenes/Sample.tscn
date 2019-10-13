@@ -22,6 +22,18 @@ position = Vector2( 819.088, 107.398 )
 script = ExtResource( 3 )
 
 [node name="AstraAndroidController" parent="." instance=ExtResource( 4 )]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 104.0
+margin_top = 71.0
+margin_right = 208.0
+margin_bottom = 116.0
+
+[node name="Text" type="Label" parent="."]
+margin_left = 321.0
+margin_top = 236.0
+margin_right = 654.0
+margin_bottom = 337.0
 [connection signal="new_body_frame" from="AstraController" to="Skeleton" method="_on_AstraController_new_body_frame"]
 [connection signal="new_color_frame" from="AstraController" to="ColorStreamView" method="_on_AstraController_new_color_frame"]
 [connection signal="new_body_frame" from="AstraAndroidController" to="Skeleton" method="_on_AstraController_new_body_frame"]

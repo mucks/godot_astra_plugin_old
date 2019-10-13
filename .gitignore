@@ -1,6 +1,7 @@
 dependencies/linux/astra_sdk
 
 dependencies/windows/astra_sdk
+godot-cpp
 
 *astra.log
 *.o
@@ -12,4 +13,5 @@ godot_demo_export/*
 AstraAndroidModule/__pycache__
 *.dblite
 godot_demo/addons/godot_astra_plugin/gdnative/x11/
+godot_demo/addons/godot_astra_plugin/gdnative/x11/libgodot_astra_plugin.so
 *.import

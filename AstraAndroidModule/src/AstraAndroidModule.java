@@ -31,16 +31,9 @@ import java.util.concurrent.TimeUnit;
 public class AstraAndroidModule extends Godot.SingletonBase { // class name should be same as java file
                                                               // name...duh
     private AstraAndroidContext aac;
-    private static final int updateSleepMS = 30;
-    private static final String logTagFrame = "ASTRA_FRAME";
-    private static final String logTagPointStream = "ASTRA_POINT";
-    private static final String logTagDepthStream = "ASTRA_DEPTH";
-    private static final String logTagMy = "MY_TAG";
-    private boolean first_call = true;
+    private String logTagAstra = "ASTRA";
+    private static final int updateSleepMS = 0;
     private int instanceId = 0;
-    private int width = 640;
-    private int height = 480;
-    private byte[] colorByteArray = new byte[0];
 
     public void set_instance_id(int instance_id) {
         this.instanceId = instance_id;
@@ -65,229 +58,119 @@ public class AstraAndroidModule extends Godot.SingletonBase { // class name shou
     private void getData() {
         new Thread(new Runnable() {
             public void run() {
-                startBodyStream();
+                StreamSet streamSet = StreamSet.open();
+                StreamReader reader = streamSet.createReader();
 
-                /*
-                 * THIS WORKS!!! ArrayList<Vector3D> vector3DList = get3DVectors();
-                 *
-                 * Log.e("DATA", "x of 200th vector: " + vector3DList.get(200).getX());
-                 * Log.e("DATA", "y of 200th vector: " + vector3DList.get(200).getY());
-                 * Log.e("DATA", "z of 200th vector:
-                 * " + vector3DList.get(200).getZ()); Log.e("DATA", "size of list: " +
-                 * vector3DList.size());
-                 */
+                // startDepthStream(reader);
+                startBodyStream(reader);
+                startColorStream(reader);
+
+                addListener(reader);
+
+                try {
+                    while (true) {
+                        Astra.update();
+                        TimeUnit.MILLISECONDS.sleep(updateSleepMS);
+                    }
+                } catch (Exception e) {
+                }
             }
         }).start();
-
-        new Thread(new Runnable() {
-            public void run() {
-                startColorStream();
-            }
-        }).start();
     }
 
-    public void startColorStream() {
-        try {
-            Log.d(logTagMy, "Trying to open color stream");
-            StreamSet streamSet = StreamSet.open();
-            StreamReader reader = streamSet.createReader();
-            reader.addFrameListener(new StreamReader.FrameListener() {
-                public void onFrameReady(StreamReader reader, ReaderFrame frame) {
-                    ColorFrame colorFrame = ColorFrame.get(frame);
+    public void addListener(StreamReader reader) {
+        reader.addFrameListener(new StreamReader.FrameListener() {
+            public void onFrameReady(StreamReader reader, ReaderFrame frame) {
+                updateBody(frame);
+                updateColor(frame);
+                updateDepth(frame);
+            }
+        });
+    }
 
-                    ByteBuffer colorBuffer = colorFrame.getByteBuffer();
+    private void updateColor(ReaderFrame frame) {
+        ColorFrame colorFrame = ColorFrame.get(frame);
 
-                    if (colorFrame.isValid()) {
+        if (colorFrame.isValid()) {
+            ByteBuffer colorBufferRGB = colorFrame.getByteBuffer();
+            int img_width = colorFrame.getWidth();
+            int img_height = colorFrame.getHeight();
 
-                        Log.d(logTagMy, "valid color frame");
-                        int byteLength = width * height * 4;
+            int byteLength = img_width * img_height * 4;
 
-                        if (colorByteArray.length != byteLength) {
-                            colorByteArray = new byte[byteLength];
-                            for (int i = 0; i < byteLength; i++) {
-                                colorByteArray[i] = 0;
-                            }
-                        }
+            byte[] colorBufferRGBA = new byte[byteLength];
 
-                        for (int i = 0; i < byteLength; i++) {
-                            int rgbOffSet = i * 4;
-                        }
+            for (int i = 0; i < img_width * img_height; i++) {
+                int rgba_index = i * 4;
+                int rgb_index = i * 3;
 
-                        GodotLib.calldeferred(instanceId, "_new_color_frame", new Object[] { colorBuffer });
-                    }
-                }
-            });
-            ColorStream colorStream = ColorStream.get(reader);
-            colorStream.start();
-
-            while (true) {
-                Astra.update();
-                TimeUnit.MILLISECONDS.sleep(updateSleepMS);
+                colorBufferRGBA[rgba_index] = colorBufferRGB.get(rgb_index);
+                colorBufferRGBA[rgba_index + 1] = colorBufferRGB.get(rgb_index + 1);
+                colorBufferRGBA[rgba_index + 2] = colorBufferRGB.get(rgb_index + 2);
+                colorBufferRGBA[rgba_index + 3] = (byte) 255;
             }
 
-        } catch (Throwable e) {
+            GodotLib.calldeferred(instanceId, "_new_color_frame",
+                    new Object[] { img_width, img_height, colorBufferRGBA });
         }
     }
 
-    public void startBodyStream() {
-        final boolean[] frameFinished = { false };
+    private void updateBody(ReaderFrame frame) {
+        BodyFrame bodyFrame = BodyFrame.get(frame);
 
-        // Call depth stream once to set resoultion. Can't set resolution via
-        // point stream.
-        if (first_call) {
-            getDepthData();
-            first_call = false;
-        }
+        if (bodyFrame.isValid()) {
+            Iterable<Body> bodies = bodyFrame.getBodies();
 
-        try {
-            Log.d(logTagPointStream, "Trying to open stream");
-            StreamSet streamSet = StreamSet.open();
-            StreamReader reader = streamSet.createReader();
+            for (Body body : bodies) {
+                Dictionary joints = new Dictionary();
+                for (Joint joint : body.getJoints()) {
+                    int jointId = joint.getType().ordinal();
+                    Vector3D pos = joint.getWorldPosition();
 
-            reader.addFrameListener(new StreamReader.FrameListener() {
-                public void onFrameReady(StreamReader reader, ReaderFrame frame) {
-                    BodyFrame bodyFrame = BodyFrame.get(frame);
+                    Dictionary godotPos = new Dictionary();
+                    godotPos.put("x", pos.getX());
+                    godotPos.put("y", pos.getY());
+                    godotPos.put("z", pos.getZ());
 
-                    Iterable<Body> bodies = bodyFrame.getBodies();
-
-                    if (bodyFrame.isValid()) {
-
-                        for (Body body : bodies) {
-                            Dictionary joints = new Dictionary();
-                            for (Joint joint : body.getJoints()) {
-                                int jointId = joint.getType().ordinal();
-                                Vector3D pos = joint.getWorldPosition();
-
-                                Dictionary godotPos = new Dictionary();
-                                godotPos.put("x", pos.getX());
-                                godotPos.put("y", pos.getY());
-                                godotPos.put("z", pos.getZ());
-
-                                joints.put(jointId + "", godotPos);
-                            }
-                            GodotLib.calldeferred(instanceId, "_new_body_frame", new Object[] { joints });
-                        }
-
-                        // frameFinished[0] = true;
-                    }
+                    joints.put(jointId + "", godotPos);
                 }
-            });
-
-            BodyStream bodyStream = BodyStream.get(reader);
-            bodyStream.start();
-
-            while (true) {
-                Astra.update();
-                TimeUnit.MILLISECONDS.sleep(updateSleepMS);
+                GodotLib.calldeferred(instanceId, "_new_body_frame", new Object[] { joints });
             }
-        } catch (Throwable e) {
-            Log.e(logTagPointStream, e.toString());
         }
     }
 
-    public ArrayList<Vector3D> get3DVectors() {
-        final boolean[] frameFinished = { false };
-        final ArrayList<Vector3D> vector3DList = new ArrayList<>();
+    public void updateDepth(ReaderFrame frame) {
+        DepthFrame depthFrame = DepthFrame.get(frame);
 
-        // Call depth stream once to set resoultion. Can't set resolution via
-        // point stream.
-        if (first_call) {
-            getDepthData();
-            first_call = false;
-        }
+        if (depthFrame.isValid()) {
+            ShortBuffer depthBuffer = depthFrame.getDepthBuffer();
 
-        try {
-            Log.d(logTagPointStream, "Trying to open stream");
-            StreamSet streamSet = StreamSet.open();
-            StreamReader reader = streamSet.createReader();
+            ArrayList<Dictionary> positions = new ArrayList<Dictionary>();
 
-            reader.addFrameListener(new StreamReader.FrameListener() {
-                public void onFrameReady(StreamReader reader, ReaderFrame frame) {
-                    PointFrame pf = PointFrame.get(frame);
-                    FloatBuffer buffer = pf.getPointBuffer();
-
-                    if (pf.isValid()) {
-                        Log.d(logTagFrame, "frame is valid");
-                        Log.d(logTagFrame, "height: " + pf.getHeight());
-                        Log.d(logTagFrame, "width: " + pf.getWidth());
-
-                        while (buffer.hasRemaining()) {
-                            vector3DList.add(new Vector3D(buffer.get(), buffer.get(), buffer.get() * -1));
-                        }
-                        frameFinished[0] = true;
-                    }
-                }
-            });
-
-            PointStream pointStream = PointStream.get(reader);
-            pointStream.start();
-
-            while (!frameFinished[0]) {
-                Astra.update();
-                TimeUnit.MILLISECONDS.sleep(updateSleepMS);
+            while (depthBuffer.hasRemaining()) {
+                Dictionary godotPos = new Dictionary();
+                godotPos.put("x", depthBuffer.get());
+                godotPos.put("y", depthBuffer.get());
+                godotPos.put("z", depthBuffer.get() * -1);
+                positions.add(godotPos);
             }
-
-            pointStream.stop();
-            reader.destroy();
-            streamSet.close();
-        } catch (Throwable e) {
-            Log.e(logTagPointStream, e.toString());
+            GodotLib.calldeferred(instanceId, "_new_depth_frame", new Object[] { positions });
         }
-
-        Log.d(logTagPointStream, "size of list: " + vector3DList.size());
-
-        return vector3DList;
     }
 
-    public ArrayList<Vector3D> getDepthData() {
-        final boolean[] frameFinished = { false };
-        final ArrayList<Vector3D> vector3DList = new ArrayList<>();
+    public void startColorStream(StreamReader reader) {
+        ColorStream colorStream = ColorStream.get(reader);
+        colorStream.start();
+    }
 
-        try {
-            Log.d(logTagDepthStream, "Trying to open stream");
-            StreamSet streamSet = StreamSet.open();
-            StreamReader reader = streamSet.createReader();
+    public void startBodyStream(StreamReader reader) {
+        BodyStream bodyStream = BodyStream.get(reader);
+        bodyStream.start();
+    }
 
-            reader.addFrameListener(new StreamReader.FrameListener() {
-                public void onFrameReady(StreamReader reader, ReaderFrame frame) {
-                    DepthFrame df = DepthFrame.get(frame);
-                    ShortBuffer buffer = df.getDepthBuffer();
-                    Log.d(logTagFrame, "new frame");
-
-                    if (df.isValid()) {
-                        Log.d(logTagFrame, "frame is valid");
-                        Log.d(logTagFrame, "height: " + df.getHeight());
-                        Log.d(logTagFrame, "width: " + df.getWidth());
-
-                        while (buffer.hasRemaining()) {
-                            // TODO Check if data looks like below data
-                            vector3DList.add(new Vector3D(buffer.get(), buffer.get(), buffer.get() * -1));
-                        }
-                        frameFinished[0] = true;
-                    }
-                }
-            });
-
-            DepthStream depthStream = DepthStream.get(reader);
-            // depthStream.setMode(new ImageStreamMode(0, width, height, 100, 30));
-            depthStream.start();
-
-            while (!frameFinished[0]) {
-                Astra.update();
-                TimeUnit.MILLISECONDS.sleep(updateSleepMS);
-            }
-
-            depthStream.stop();
-            reader.destroy();
-            streamSet.close();
-        } catch (Throwable e) {
-            Log.e(logTagDepthStream, "MYERROR");
-            Log.e(logTagDepthStream, e.toString());
-        }
-
-        Log.d(logTagDepthStream, "size of list: " + vector3DList.size());
-
-        return vector3DList;
+    public void startDepthStream(StreamReader reader) {
+        DepthStream depthStream = DepthStream.get(reader);
+        depthStream.start();
     }
 
     // Not needed for our purposes

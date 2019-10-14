@@ -23,6 +23,10 @@ config/name="godot_demo"
 run/main_scene="res://addons/godot_astra_plugin/scenes/Sample.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
